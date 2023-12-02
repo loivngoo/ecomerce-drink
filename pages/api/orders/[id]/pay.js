@@ -14,6 +14,7 @@ const handler = async (req, res) => {
     if (order.isPaid) {
       return res.status(400).send({ message: 'Error: order is already paid' });
     }
+    order.isDelivered=true;
     order.isPaid = true;
     order.paidAt = Date.now();
     order.paymentResult = {
